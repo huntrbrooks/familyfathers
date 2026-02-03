@@ -405,6 +405,7 @@ export const defaultFooterContent: FooterContent = {
     { href: "/services", label: "Our Services" },
     { href: "#process", label: "How It Works" },
     { href: "#pricing", label: "Fees" },
+    { href: "/resources", label: "Resources" },
     { href: "#contact", label: "Contact Us" },
   ],
 };
