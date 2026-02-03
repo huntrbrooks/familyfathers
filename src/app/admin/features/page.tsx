@@ -298,14 +298,26 @@ export default function FeaturesEditor() {
               className="mt-2 w-full rounded-md border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#02B1C5]"
             />
           </div>
-          <div>
-            <Label htmlFor="ctaButtonText">CTA Button Text</Label>
-            <Input
-              id="ctaButtonText"
-              value={content.ctaButtonText}
-              onChange={(e) => setContent((prev) => ({ ...prev, ctaButtonText: e.target.value }))}
-              className="mt-2 max-w-xs"
-            />
+          <div className="grid gap-4 md:grid-cols-2">
+            <div>
+              <Label htmlFor="ctaButtonText">CTA Button Text</Label>
+              <Input
+                id="ctaButtonText"
+                value={content.ctaButtonText}
+                onChange={(e) => setContent((prev) => ({ ...prev, ctaButtonText: e.target.value }))}
+                className="mt-2"
+              />
+            </div>
+            <div>
+              <Label htmlFor="ctaButtonHref">CTA Button Link</Label>
+              <Input
+                id="ctaButtonHref"
+                value={content.ctaButtonHref || ""}
+                onChange={(e) => setContent((prev) => ({ ...prev, ctaButtonHref: e.target.value }))}
+                className="mt-2"
+                placeholder="e.g., #contact or /services"
+              />
+            </div>
           </div>
         </div>
       </div>

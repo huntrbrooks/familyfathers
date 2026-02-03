@@ -12,6 +12,7 @@ import {
   MessageSquare,
   ExternalLink,
   RefreshCw,
+  Briefcase,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -29,6 +30,13 @@ const sections = [
     title: "Features",
     description: "Manage feature cards, highlights, and best practice section",
     color: "bg-purple-500",
+  },
+  {
+    href: "/admin/services",
+    icon: Briefcase,
+    title: "Services Page",
+    description: "Edit the /services page content and fees",
+    color: "bg-cyan-500",
   },
   {
     href: "/admin/process",

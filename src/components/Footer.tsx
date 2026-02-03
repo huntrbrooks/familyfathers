@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Mail } from "lucide-react";
 import { getContent, FooterContent } from "@/lib/content";
 
@@ -12,28 +13,19 @@ export async function Footer() {
           {/* Brand */}
           <div className="text-center sm:text-left">
             <div className="flex items-center gap-3 mb-4 group cursor-pointer justify-center sm:justify-start">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 44 44"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+              <Image
+                src="/FAMILY BOND AUSTRALIA LOGO.png"
+                alt="Family Bond Australia"
+                width={44}
+                height={44}
                 className="transition-transform duration-300 group-hover:scale-105 w-9 h-9 sm:w-11 sm:h-11"
-              >
-                <path
-                  d="M22 6L38 16V28L22 38L6 28V16L22 6Z"
-                  stroke="#02B1C5"
-                  strokeWidth="2.5"
-                  fill="none"
-                />
-                <path d="M22 16L30 21V27L22 32L14 27V21L22 16Z" fill="#FAC39D" />
-              </svg>
+              />
               <div className="flex flex-col">
-                <span className="text-lg sm:text-xl font-bold text-[#02B1C5] leading-tight tracking-wide">
-                  FAMILY
+                <span className="text-lg sm:text-xl font-bold text-[#3d6b4f] leading-tight tracking-wide">
+                  FAMILY BOND
                 </span>
-                <span className="text-xs sm:text-sm font-semibold text-[#FAC39D] leading-tight tracking-wider">
-                  FATHERS
+                <span className="text-xs sm:text-sm font-semibold text-[#8ba888] leading-tight tracking-wider">
+                  AUSTRALIA
                 </span>
               </div>
             </div>
@@ -51,7 +43,7 @@ export async function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-[#02B1C5] transition-all duration-300 text-xs sm:text-sm inline-block sm:hover:translate-x-1"
+                    className="text-gray-400 hover:text-[#8ba888] transition-all duration-300 text-xs sm:text-sm inline-block sm:hover:translate-x-1"
                   >
                     {link.label}
                   </Link>
@@ -67,7 +59,7 @@ export async function Footer() {
               <li>
                 <a
                   href={`tel:${content.phone.replace(/\s/g, "")}`}
-                  className="inline-flex items-center gap-2 text-gray-400 hover:text-[#02B1C5] transition-all duration-300 text-xs sm:text-sm group"
+                  className="inline-flex items-center gap-2 text-gray-400 hover:text-[#8ba888] transition-all duration-300 text-xs sm:text-sm group"
                 >
                   <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:scale-110" />
                   <span>{content.phone}</span>
@@ -76,7 +68,7 @@ export async function Footer() {
               <li>
                 <a
                   href={`mailto:${content.email}`}
-                  className="inline-flex items-center gap-2 text-gray-400 hover:text-[#02B1C5] transition-all duration-300 text-xs sm:text-sm group"
+                  className="inline-flex items-center gap-2 text-gray-400 hover:text-[#8ba888] transition-all duration-300 text-xs sm:text-sm group"
                 >
                   <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:scale-110 flex-shrink-0" />
                   <span className="break-all sm:break-normal">{content.email}</span>

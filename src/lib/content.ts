@@ -12,6 +12,8 @@ export interface HeroContent {
   badge2: string;
   imageUrl: string;
   imageAlt: string;
+  ctaButtonText: string;
+  ctaButtonHref: string;
 }
 
 export interface FeatureItem {
@@ -33,6 +35,7 @@ export interface FeaturesContent {
   bestPracticeParagraph1: string;
   bestPracticeParagraph2: string;
   ctaButtonText: string;
+  ctaButtonHref: string;
 }
 
 export interface ProcessStep {
@@ -144,94 +147,119 @@ export interface ResourcesContent {
   documents: ResourceDocument[];
 }
 
+export interface ServiceItem {
+  title: string;
+  shortDescription: string;
+  fullDescription: string;
+}
+
+export interface ServiceFeePlan {
+  title: string;
+  price: string;
+  description: string;
+}
+
+export interface ServicesContent {
+  pageTitle: string;
+  pageSubtitle: string;
+  services: ServiceItem[];
+  feeSectionTitle: string;
+  feeSectionSubtitle: string;
+  feePlans: ServiceFeePlan[];
+  travelTitle: string;
+  travelText: string;
+  additionalServicesTitle: string;
+  additionalServicesText: string;
+  additionalServicesList: string[];
+  paymentTitle: string;
+  paymentText: string;
+}
+
 // ============================================
 // DEFAULT VALUES (Fallbacks)
 // ============================================
 
 export const defaultHeroContent: HeroContent = {
-  heading: "Specialists in child-centred supervision to support",
-  headingHighlight: "your family",
-  subheading: "At Family Fathers, we provide innovative, specialised child contact services for family law matters. Our professional and caring supervisors facilitate court ordered time arrangements between parents and children for your peace of mind.",
-  badge1: "Weekday & Weekend Visits",
+  heading: "Building Safe Bridges for",
+  headingHighlight: "Growing Hearts",
+  subheading: "Thoughtfully delivered Child Contact Services across Melbourne.",
+  badge1: "Weekday & Weekend Availability",
   badge2: "Metropolitan Melbourne",
-  imageUrl: "/hero-family.jpg",
-  imageAlt: "Family playing together outdoors in the sunshine",
+  imageUrl: "/children-central-how-to-nurture-your-parent-child-relationship.jpg",
+  imageAlt: "Happy family spending quality time together",
+  ctaButtonText: "Get in Touch",
+  ctaButtonHref: "#contact",
 };
 
 export const defaultFeaturesContent: FeaturesContent = {
-  sectionTitle: "We Provide",
+  sectionTitle: "What We Offer",
   features: [
     {
       icon: "Shield",
-      title: "Safe environment for children",
-      description: "to develop important relationships",
+      title: "Supported Contact (Supervised Visits)",
+      description: "A trained supervisor is present throughout visits to ensure they run smoothly while allowing natural interaction.",
     },
     {
       icon: "Users",
-      title: "Access for children",
-      description: "to spend time with their non-custodial parent",
+      title: "Structured Changeovers",
+      description: "Supervised handovers where direct contact isn't appropriate, managed calmly and efficiently.",
     },
     {
       icon: "Heart",
-      title: "Peace of mind",
-      description: "for custodial parents during family law supervised visits",
+      title: "Virtual Support",
+      description: "Online supervision for families where in-person services aren't suitable.",
     },
     {
       icon: "FileText",
-      title: "Upholding federal court orders",
-      description: "and providing necessary documentation",
+      title: "Observation & Documentation",
+      description: "Clear, factual observation records prepared after each service.",
     },
   ],
   highlights: [
-    { icon: "Scale", text: "Experience in family law court orders" },
-    { icon: "Brain", text: "Trauma-informed care and practice" },
-    { icon: "AlertTriangle", text: "Contingency plans for family violence" },
+    { icon: "CheckCircle", text: "A calm, modern approach to supervision" },
+    { icon: "Users", text: "Skilled supervisors who put people at ease" },
+    { icon: "MapPin", text: "Flexible, mobile services across Melbourne" },
+    { icon: "CheckCircle", text: "Clear communication and dependable follow-through" },
+    { icon: "Heart", text: "A service that feels organised without feeling cold" },
   ],
-  bestPracticeHeading: "We operate within industry best-practice standards to provide better support and professional service.",
-  bestPracticeParagraph1: "We operate within industry best-practice standards to provide better support and professional service from your initial intake until your final report. As specialist providers in family law supervision, our services are specifically tailored to families in the midst of family law litigation.",
-  bestPracticeParagraph2: "Our supervised services are conducted as a mobile outreach service at locations across Melbourne including parks, play centres, and shopping centres. We believe that family is important, and we provide a safe and secure platform for parents and children to spend time together during court ordered visitations.",
-  ctaButtonText: "Get in touch",
+  bestPracticeHeading: "Our Approach",
+  bestPracticeParagraph1: "We take a considered, modern approach to Child Contact Services. That means thoughtful planning, clear communication, and supervisors who know how to read a room — not just follow a checklist.",
+  bestPracticeParagraph2: "Our supervisors are highly trained, calm, and personable. They know how to support families without making children or parents feel uneasy. Supervision is present when needed, subtle when possible, and always focused on helping time together feel natural rather than staged. This balance is what sets our service apart.",
+  ctaButtonText: "View all of our Services",
+  ctaButtonHref: "/services",
 };
 
 export const defaultProcessContent: ProcessContent = {
-  sectionTitle: "Our Process",
-  sectionSubtitle: "We follow a streamlined process to minimise your stress",
+  sectionTitle: "How It Works",
+  sectionSubtitle: "A clear, structured approach to delivering quality Child Contact Services",
   steps: [
     {
       number: "01",
-      title: "Contact Family Fathers",
-      timeframe: "Within 24 hours",
-      subtitle: "Understand Your Options",
-      content: `Send in your enquiry and we will respond within 24 hours. We understand that your child is your life, and we are here to talk through your concerns and gain an understanding of your unique situation.
-
-We can answer questions such as whether supervision is available in your area and when time can commence. In the event that no services are immediately available, we may place you on our waitlist.`,
+      title: "Intake & Review",
+      timeframe: "Initial consultation",
+      subtitle: "Understanding Your Situation",
+      content: `We take time to understand the arrangements, court orders, and individual circumstances.`,
     },
     {
       number: "02",
-      title: "Intake Assessment",
-      timeframe: "Within 7 days",
-      subtitle: "Intake Assessments Scheduled",
-      content: `Once your matter has been allocated to a suitable supervisor, both parents are required to undertake an initial assessment to determine the specific requirements of your situation and any interventions required to ensure reliable service provision.
-
-The appointed supervisor will proceed to develop a plan as to how supervised time will proceed based on the best interests of the child, the preferences of the parents, and any court ordered requirements. Intakes can progress more quickly if both parties pay the relevant fees and have the relevant availability.`,
+      title: "Planning & Setup",
+      timeframe: "Service preparation",
+      subtitle: "Scheduling & Coordination",
+      content: `Services are scheduled thoughtfully, with locations and supervision needs agreed in advance.`,
     },
     {
       number: "03",
-      title: "Supervised Visits",
-      timeframe: "Within 14 days",
-      subtitle: "Supervised Visit Scheduled",
-      content: `Once your matter has been deemed suitable for supervised contact to proceed, the appointed supervisor will schedule supervised time with the non-resident parent and the child to proceed.
-
-Based on the information provided during the initial assessment, an appropriate plan will be developed with relevant interventions required depending on your unique situation and the particular needs of your child. Supervised visits will be directed at the discretion of the supervisor and can be provided on an ongoing basis if required.`,
+      title: "Service Delivery",
+      timeframe: "Supervised sessions",
+      subtitle: "Professional Support",
+      content: `Contact or changeovers take place with a trained supervisor present.`,
     },
     {
       number: "04",
-      title: "Observation Report",
-      timeframe: "Within 7 days",
-      subtitle: "Observation Report Prepared",
-      content: `These reports provide the Court with detailed observations on your child, interactions with both parents, and any areas of concern identified by the contact supervisor during your engagement with Family Fathers. We understand that an observation report can make or break your case, and we do not charge any extra fees for a formal observation report to be provided if this is required by the Federal Circuit and Family Court of Australia.
-
-We request that you provide the request for an Observational Report more than 7 days before you need the document. This report will be provided on a template affidavit for your solicitor to sign directly as a witness with your appointed supervisor.`,
+      title: "Ongoing Support & Reporting",
+      timeframe: "Documentation",
+      subtitle: "Continuous Care",
+      content: `Documentation is completed and services continue as required.`,
     },
   ],
 };
@@ -273,8 +301,8 @@ export const defaultPricingContent: PricingContent = {
 };
 
 export const defaultServiceAreasContent: ServiceAreasContent = {
-  sectionTitle: "Our Service Areas",
-  sectionSubtitle: "Family Fathers provides specialist family law child contact supervision services to families across Metropolitan Melbourne.",
+  sectionTitle: "Service Areas",
+  sectionSubtitle: "Family Bond Australia operates across metropolitan Melbourne as a mobile service. We meet families in agreed public locations that suit the child and the arrangement — removing the need for centre-based visits and helping services feel more natural.",
   helperText: "View full list of Council service areas below:",
   areas: [
     {
@@ -337,25 +365,25 @@ export const defaultServiceAreasContent: ServiceAreasContent = {
 
 export const defaultAboutContent: AboutContent = {
   sectionLabel: "About Us",
-  heading: "Family Law experts who provide secure child supervision during court ordered family interventions.",
-  paragraph1: "Family Fathers is a metropolitan Melbourne-based service providing qualified supervisors and experienced professionals to support your family while you navigate the family court process. We facilitate court ordered times, work with family lawyers, and develop a plan to move your matter forward with support and relevant interventions to protect your child and their relationship with both parents.",
-  paragraph2: "We understand that family law clients require assistance to navigate the difficulties of family violence, narcissism, and the resulting trauma to reestablish and nurture positive relationships. This process can be complex and emotionally challenging. Our caring team provides secure, reliable support for children to maintain key relationships in their lives.",
+  heading: "Family Bond Australia exists to bring structure, ease, and reassurance to families navigating separation.",
+  paragraph1: "We approach each matter with care and clarity, understanding how important it is for children to feel settled and for parents to feel confident in the process. Our work is guided by recognised industry principles and Attorney-General guidelines, and shaped by real-world experience working alongside families, children, and family law professionals. Every service is delivered with consistency, discretion, and attention to detail.",
+  paragraph2: "We are Melbourne-based and operate as a fully mobile service, offering weekday and weekend availability across metropolitan areas. Our flexible model allows us to meet families in environments that feel familiar, appropriate, and comfortable for children.",
   features: [
-    "Qualified & experienced supervisors",
-    "Confidential & impartial service",
-    "Child Safe Practice Compliant",
+    "Guided by industry principles & Attorney-General guidelines",
+    "Fully mobile service across Melbourne",
+    "Weekday & weekend availability",
   ],
-  imageUrl: "/about-team.jpg",
-  imageAlt: "Professional team providing caring support services",
+  imageUrl: "/children-central-how-to-nurture-your-parent-child-relationship.jpg",
+  imageAlt: "Family spending quality time together",
 };
 
 export const defaultContactContent: ContactContent = {
   sectionTitle: "Contact Us",
-  sectionSubtitle: "Reach out today to register your interest and start the conversation.",
+  sectionSubtitle: "If you're looking for a composed, capable Child Contact Service that does things thoughtfully, we're here to help. Get in touch to discuss next steps or begin the intake process.",
   enquiryOptions: [
-    { value: "supervision", label: "I want to proceed with family law supervision" },
+    { value: "supervision", label: "I want to proceed with Child Contact Services" },
     { value: "availability", label: "I want to learn about current availability" },
-    { value: "questions", label: "I have some questions about supervision" },
+    { value: "questions", label: "I have some questions about your services" },
     { value: "employment", label: "I am interested in employment" },
     { value: "solicitor", label: "I am a family law solicitor" },
   ],
@@ -365,25 +393,25 @@ export const defaultContactContent: ContactContent = {
 };
 
 export const defaultFooterContent: FooterContent = {
-  tagline: "Specialists in child-centred supervision to support your child in the midst of family law proceedings.",
+  tagline: "Thoughtfully delivered Child Contact Services across Melbourne. Building safe bridges for growing hearts.",
   getInTouchTitle: "Get In Touch",
   quickLinksTitle: "Quick Links",
   contactTitle: "Contact",
   phone: "0493 429 730",
   email: "contact@familyfathers.com.au",
-  copyrightText: "Family Fathers",
+  copyrightText: "Family Bond Australia",
   navLinks: [
-    { href: "#about", label: "About Our Service" },
-    { href: "#process", label: "Our Process" },
-    { href: "#pricing", label: "Our Fees" },
-    { href: "/resources", label: "Resources" },
+    { href: "#about", label: "About Us" },
+    { href: "/services", label: "Our Services" },
+    { href: "#process", label: "How It Works" },
+    { href: "#pricing", label: "Fees" },
     { href: "#contact", label: "Contact Us" },
   ],
 };
 
 export const defaultSiteSettings: SiteSettings = {
-  siteName: "Family Fathers",
-  siteDescription: "Specialists in child-centred supervision to support your family",
+  siteName: "Family Bond Australia",
+  siteDescription: "Thoughtfully delivered Child Contact Services across Melbourne",
   phone: "0493 429 730",
   email: "contact@familyfathers.com.au",
 };
@@ -392,6 +420,69 @@ export const defaultResourcesContent: ResourcesContent = {
   sectionTitle: "Resources",
   sectionSubtitle: "Important documents and policies for our services",
   documents: [],
+};
+
+export const defaultServicesContent: ServicesContent = {
+  pageTitle: "What We Offer",
+  pageSubtitle: "Thoughtfully delivered Child Contact Services across Melbourne",
+  services: [
+    {
+      title: "Supported Contact (Supervised Visits)",
+      shortDescription: "A trained supervisor is present throughout visits to ensure they run smoothly while allowing natural interaction.",
+      fullDescription: "Supported contact involves a trained supervisor remaining present throughout a parent's time with their child. The role of the supervisor is to ensure the visit runs smoothly while allowing space for genuine interaction. Our supervisors are warm, approachable, and experienced in creating relaxed environments. Their presence is designed to provide reassurance - not interruption - so parents and children can focus on being together.",
+    },
+    {
+      title: "Structured Changeovers",
+      shortDescription: "Supervised handovers where direct contact isn't appropriate, managed calmly and efficiently.",
+      fullDescription: "Structured changeovers are available where direct handovers are not appropriate. This service removes the need for parents to interact and ensures transitions are handled calmly and efficiently. The supervisor manages timing, communication, and the exchange itself, helping children move between parents in a predictable and supported way.",
+    },
+    {
+      title: "Virtual Support",
+      shortDescription: "Online supervision for families where in-person services aren't suitable.",
+      fullDescription: "Virtual supervision offers an alternative where in-person services aren't suitable. Sessions are conducted online with oversight provided throughout, ensuring continuity of contact while maintaining independent supervision.",
+    },
+    {
+      title: "Observation & Documentation",
+      shortDescription: "Clear, factual observation records prepared after each service.",
+      fullDescription: "Following each service, a clear and factual observation record is prepared. These summaries can be shared with legal representatives or used to support ongoing arrangements. Reports are objective, well-structured, and written with care.",
+    },
+  ],
+  feeSectionTitle: "Fees",
+  feeSectionSubtitle: "Transparent pricing for all our services",
+  feePlans: [
+    {
+      title: "Supervised Contact (Supported Visits)",
+      price: "$250",
+      description: "per 2 hour session",
+    },
+    {
+      title: "Structured Changeovers",
+      price: "$125",
+      description: "per changeover",
+    },
+    {
+      title: "Virtual Supervision",
+      price: "$125",
+      description: "per session",
+    },
+    {
+      title: "Observation & Documentation",
+      price: "Included",
+      description: "with each service",
+    },
+  ],
+  travelTitle: "Travel",
+  travelText: "Travel is charged separately based on location and distance and will be confirmed prior to service delivery.",
+  additionalServicesTitle: "Additional Services",
+  additionalServicesText: "These services are quoted individually, based on the scope and time involved.",
+  additionalServicesList: [
+    "Home safety checks",
+    "Affidavits",
+    "Subpoena responses",
+    "Court appearances",
+  ],
+  paymentTitle: "Payment & Invoicing",
+  paymentText: "Invoices are issued in line with scheduled services and must be finalised prior to service delivery, unless otherwise agreed. We aim to keep payment processes straightforward and consistent. If you have questions about fees or would like a tailored estimate, we're happy to talk things through as part of the intake process.",
 };
 
 // ============================================
@@ -410,6 +501,7 @@ type ContentTypeMap = {
   navigation: NavLink[];
   siteSettings: SiteSettings;
   resources: ResourcesContent;
+  services: ServicesContent;
 };
 
 const defaultContentMap: Record<ContentKey, unknown> = {
@@ -424,6 +516,7 @@ const defaultContentMap: Record<ContentKey, unknown> = {
   navigation: defaultFooterContent.navLinks,
   siteSettings: defaultSiteSettings,
   resources: defaultResourcesContent,
+  services: defaultServicesContent,
 };
 
 export async function getContent<K extends ContentKey>(

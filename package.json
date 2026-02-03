@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "generate:legal": "node scripts/generate-legal-pdfs.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -16,6 +17,7 @@
     "clsx": "^2.1.1",
     "lucide-react": "^0.563.0",
     "next": "16.1.6",
+    "pdfkit": "^0.17.2",
     "radix-ui": "^1.4.3",
     "react": "19.2.3",
     "react-dom": "19.2.3",

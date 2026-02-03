@@ -13,6 +13,7 @@ import {
   Calendar,
   Clock,
   Home,
+  MapPin,
   LucideIcon,
 } from "lucide-react";
 import { getContent, FeaturesContent } from "@/lib/content";
@@ -33,6 +34,7 @@ const iconMap: Record<string, LucideIcon> = {
   Calendar,
   Clock,
   Home,
+  MapPin,
 };
 
 // Icon mapping helper
@@ -103,7 +105,7 @@ export async function Features() {
           </p>
           <div className="flex justify-center mt-6 sm:mt-8">
             <a
-              href="#contact"
+              href={content.ctaButtonHref}
               className="inline-flex items-center justify-center bg-[#02B1C5] text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-[10px] font-medium text-sm sm:text-base transition-all duration-300 hover:bg-[#019AAD] hover:shadow-lg hover:shadow-[#02B1C5]/25 sm:hover:-translate-y-0.5 active:translate-y-0 w-full sm:w-auto"
             >
               {content.ctaButtonText}

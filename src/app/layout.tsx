@@ -8,9 +8,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Family Fathers – Specialists in Child-Centred Supervision to Support your Family",
-  description: "At Family Fathers, we provide innovative, specialised child contact services for family law matters. Our professional and caring supervisors facilitate court ordered time arrangements between parents and children for your peace of mind.",
-  keywords: "child supervision, family law, Melbourne, supervised visits, court orders, family fathers",
+  title: "Family Bond Australia – Thoughtfully Delivered Child Contact Services",
+  description: "Family Bond Australia provides thoughtfully delivered Child Contact Services across Melbourne. Supervised visits, structured changeovers, virtual support, and professional observation documentation for families navigating separation.",
+  keywords: "child contact services, supervised visits, family law, Melbourne, structured changeovers, child supervision, family bond australia",
   icons: {
     icon: [
       { url: "/favicon_io/favicon-16x16.png", sizes: "16x16", type: "image/png" },

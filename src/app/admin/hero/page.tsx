@@ -217,6 +217,30 @@ export default function HeroEditor() {
           </div>
         </div>
 
+        {/* CTA Button */}
+        <div className="grid gap-4 md:grid-cols-2">
+          <div>
+            <Label htmlFor="ctaButtonText">CTA Button Text</Label>
+            <Input
+              id="ctaButtonText"
+              value={content.ctaButtonText || ""}
+              onChange={(e) => setContent((prev) => ({ ...prev, ctaButtonText: e.target.value }))}
+              className="mt-2"
+              placeholder="e.g., Get in Touch"
+            />
+          </div>
+          <div>
+            <Label htmlFor="ctaButtonHref">CTA Button Link</Label>
+            <Input
+              id="ctaButtonHref"
+              value={content.ctaButtonHref || ""}
+              onChange={(e) => setContent((prev) => ({ ...prev, ctaButtonHref: e.target.value }))}
+              className="mt-2"
+              placeholder="e.g., #contact or /services"
+            />
+          </div>
+        </div>
+
         {/* Image */}
         <div>
           <Label>Hero Image</Label>

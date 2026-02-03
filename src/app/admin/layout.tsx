@@ -16,6 +16,7 @@ import {
   Menu,
   LogOut,
   X,
+  Briefcase,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -23,6 +24,7 @@ const navItems = [
   { href: "/admin", icon: LayoutDashboard, label: "Dashboard" },
   { href: "/admin/hero", icon: Image, label: "Hero" },
   { href: "/admin/features", icon: Layers, label: "Features" },
+  { href: "/admin/services", icon: Briefcase, label: "Services Page" },
   { href: "/admin/process", icon: ListOrdered, label: "Process" },
   { href: "/admin/pricing", icon: DollarSign, label: "Pricing" },
   { href: "/admin/service-areas", icon: MapPin, label: "Service Areas" },

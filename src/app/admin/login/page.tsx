@@ -51,7 +51,7 @@ export default function AdminLoginPage() {
               <Lock className="w-8 h-8 text-white" />
             </div>
             <h1 className="text-2xl font-bold text-gray-900">Admin Access</h1>
-            <p className="text-gray-500 mt-1">Family Fathers Content Manager</p>
+            <p className="text-gray-500 mt-1">Family Bond Australia Content Manager</p>
           </div>
 
           {/* Form */}

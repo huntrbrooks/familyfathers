@@ -29,6 +29,7 @@ export const CONTENT_KEYS = {
   navigation: "content:navigation",
   siteSettings: "content:siteSettings",
   resources: "content:resources",
+  services: "content:services",
 } as const;
 
 export type ContentKey = keyof typeof CONTENT_KEYS;
