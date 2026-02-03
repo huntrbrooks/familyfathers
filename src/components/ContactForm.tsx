@@ -30,7 +30,7 @@ export function ContactFormClient({ content }: ContactFormProps) {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const totalSteps = 3;
-  const progress = (step / totalSteps) * 100;
+  const progress = ((step - 1) / totalSteps) * 100;
 
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
