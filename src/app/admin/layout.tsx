@@ -12,6 +12,7 @@ import {
   MapPin,
   Info,
   MessageSquare,
+  FileText,
   Menu,
   LogOut,
   X,
@@ -27,6 +28,7 @@ const navItems = [
   { href: "/admin/service-areas", icon: MapPin, label: "Service Areas" },
   { href: "/admin/about", icon: Info, label: "About" },
   { href: "/admin/contact", icon: MessageSquare, label: "Contact & Footer" },
+  { href: "/admin/resources", icon: FileText, label: "Resources" },
 ];
 
 export default function AdminLayout({

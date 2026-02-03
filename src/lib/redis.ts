@@ -18,6 +18,7 @@ export const CONTENT_KEYS = {
   footer: "content:footer",
   navigation: "content:navigation",
   siteSettings: "content:siteSettings",
+  resources: "content:resources",
 } as const;
 
 export type ContentKey = keyof typeof CONTENT_KEYS;

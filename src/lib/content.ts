@@ -131,6 +131,19 @@ export interface SiteSettings {
   email: string;
 }
 
+export interface ResourceDocument {
+  id: string;
+  name: string;
+  url: string;
+  uploadedAt: string;
+}
+
+export interface ResourcesContent {
+  sectionTitle: string;
+  sectionSubtitle: string;
+  documents: ResourceDocument[];
+}
+
 // ============================================
 // DEFAULT VALUES (Fallbacks)
 // ============================================
@@ -363,6 +376,7 @@ export const defaultFooterContent: FooterContent = {
     { href: "#about", label: "About Our Service" },
     { href: "#process", label: "Our Process" },
     { href: "#pricing", label: "Our Fees" },
+    { href: "/resources", label: "Resources" },
     { href: "#contact", label: "Contact Us" },
   ],
 };
@@ -372,6 +386,12 @@ export const defaultSiteSettings: SiteSettings = {
   siteDescription: "Specialists in child-centred supervision to support your family",
   phone: "0493 429 730",
   email: "contact@familyfathers.com.au",
+};
+
+export const defaultResourcesContent: ResourcesContent = {
+  sectionTitle: "Resources",
+  sectionSubtitle: "Important documents and policies for our services",
+  documents: [],
 };
 
 // ============================================
@@ -389,6 +409,7 @@ type ContentTypeMap = {
   footer: FooterContent;
   navigation: NavLink[];
   siteSettings: SiteSettings;
+  resources: ResourcesContent;
 };
 
 const defaultContentMap: Record<ContentKey, unknown> = {
@@ -402,6 +423,7 @@ const defaultContentMap: Record<ContentKey, unknown> = {
   footer: defaultFooterContent,
   navigation: defaultFooterContent.navLinks,
   siteSettings: defaultSiteSettings,
+  resources: defaultResourcesContent,
 };
 
 export async function getContent<K extends ContentKey>(
