@@ -13,6 +13,7 @@ import {
   ExternalLink,
   RefreshCw,
   Briefcase,
+  FileText,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -72,6 +73,13 @@ const sections = [
     title: "Contact & Footer",
     description: "Manage contact form options, footer content, and contact info",
     color: "bg-teal-500",
+  },
+  {
+    href: "/admin/resources",
+    icon: FileText,
+    title: "Resources",
+    description: "Upload and manage PDF documents for the Resources page",
+    color: "bg-orange-500",
   },
 ];
 
