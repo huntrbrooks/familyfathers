@@ -8,6 +8,15 @@ const ALL_ALLOWED_TYPES = [...IMAGE_TYPES, ...PDF_TYPES];
 
 export async function POST(request: NextRequest) {
   try {
+    // Check if BLOB_READ_WRITE_TOKEN is configured
+    if (!process.env.BLOB_READ_WRITE_TOKEN) {
+      console.error("BLOB_READ_WRITE_TOKEN environment variable is not set");
+      return NextResponse.json(
+        { error: "Server configuration error: Blob storage not configured" },
+        { status: 500 }
+      );
+    }
+
     // Verify authentication
     const isAuthenticated = await verifySession();
     if (!isAuthenticated) {
@@ -63,8 +72,20 @@ export async function POST(request: NextRequest) {
     });
   } catch (error) {
     console.error("Upload error:", error);
+    
+    // Provide more specific error messages
+    const errorMessage = error instanceof Error ? error.message : "Unknown error";
+    
+    // Check for common Vercel Blob errors
+    if (errorMessage.includes("BLOB_READ_WRITE_TOKEN")) {
+      return NextResponse.json(
+        { error: "Server configuration error: Invalid blob storage token" },
+        { status: 500 }
+      );
+    }
+    
     return NextResponse.json(
-      { error: "Failed to upload file" },
+      { error: `Failed to upload file: ${errorMessage}` },
       { status: 500 }
     );
   }
