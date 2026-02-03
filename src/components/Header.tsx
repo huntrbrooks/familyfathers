@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -26,22 +27,13 @@ export function Header() {
       <div className="container mx-auto flex h-16 sm:h-20 items-center justify-between px-4 sm:px-6">
         {/* Logo */}
         <Link href="/" className="flex items-center group">
-          <svg
-            width="36"
-            height="36"
-            viewBox="0 0 44 44"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="transition-transform duration-300 group-hover:scale-105 w-8 h-8 sm:w-10 sm:h-10"
-          >
-            <path
-              d="M22 6L38 16V28L22 38L6 28V16L22 6Z"
-              stroke="#02B1C5"
-              strokeWidth="2.5"
-              fill="none"
-            />
-            <path d="M22 16L30 21V27L22 32L14 27V21L22 16Z" fill="#FAC39D" />
-          </svg>
+          <Image
+            src="/family-fathers-logo.png"
+            alt="Family Fathers"
+            width={50}
+            height={50}
+            className="transition-transform duration-300 group-hover:scale-105 w-10 h-10 sm:w-12 sm:h-12"
+          />
           <div className="flex flex-col ml-2">
             <span className="text-base sm:text-xl font-bold text-[#02B1C5] leading-tight tracking-wide">
               FAMILY
