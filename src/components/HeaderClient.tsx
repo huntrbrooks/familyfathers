@@ -17,6 +17,14 @@ interface HeaderClientProps {
   navLinks: NavLink[];
 }
 
+// Convert #section links to /#section so they work from any page
+function normalizeHref(href: string): string {
+  if (href.startsWith('#')) {
+    return '/' + href;
+  }
+  return href;
+}
+
 export function HeaderClient({ navLinks }: HeaderClientProps) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -47,7 +55,7 @@ export function HeaderClient({ navLinks }: HeaderClientProps) {
           {navLinks.map((link) => (
             <Link
               key={link.href}
-              href={link.href}
+              href={normalizeHref(link.href)}
               className="relative text-sm font-medium text-gray-600 transition-colors duration-300 hover:text-[#3d6b4f] after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-[#3d6b4f] after:transition-all after:duration-300 hover:after:w-full"
             >
               {link.label}
@@ -69,7 +77,7 @@ export function HeaderClient({ navLinks }: HeaderClientProps) {
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
-                  href={link.href}
+                  href={normalizeHref(link.href)}
                   onClick={() => setIsOpen(false)}
                   className="text-base sm:text-lg font-medium text-gray-600 hover:text-[#3d6b4f] active:text-[#3d6b4f] transition-colors duration-300 py-3 px-2 border-b border-gray-100 hover:border-[#3d6b4f] active:bg-[#e8f0e6] rounded-sm min-h-[44px] flex items-center"
                 >

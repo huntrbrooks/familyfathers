@@ -3,6 +3,14 @@ import Image from "next/image";
 import { Phone, Mail } from "lucide-react";
 import { getContent, FooterContent } from "@/lib/content";
 
+// Convert #section links to /#section so they work from any page
+function normalizeHref(href: string): string {
+  if (href.startsWith('#')) {
+    return '/' + href;
+  }
+  return href;
+}
+
 export async function Footer() {
   const content: FooterContent = await getContent("footer");
   
@@ -42,7 +50,7 @@ export async function Footer() {
               {content.navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
-                    href={link.href}
+                    href={normalizeHref(link.href)}
                     className="text-gray-400 hover:text-[#8ba888] transition-all duration-300 text-xs sm:text-sm inline-block sm:hover:translate-x-1"
                   >
                     {link.label}
