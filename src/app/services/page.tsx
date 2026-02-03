@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Shield, Users, Heart, FileText, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
+export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
 // Icon mapping for services

@@ -3,6 +3,8 @@ import { verifySession } from "@/lib/auth";
 import { getContent, setContent, getAllContent } from "@/lib/content";
 import { ContentKey, CONTENT_KEYS } from "@/lib/redis";
 
+export const dynamic = 'force-dynamic';
+
 // GET - Fetch content (single section or all)
 export async function GET(request: NextRequest) {
   try {
