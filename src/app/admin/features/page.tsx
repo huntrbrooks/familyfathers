@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { ArrowLeft, Save, Plus, Trash2, Loader2, GripVertical } from "lucide-react";
+import { ArrowLeft, Save, Plus, Trash2, Loader2, GripVertical, CheckCircle2, Circle } from "lucide-react";
 import Link from "next/link";
 import { FeaturesContent, defaultFeaturesContent, FeatureItem, HighlightItem } from "@/lib/content";
 
@@ -18,6 +18,7 @@ export default function FeaturesEditor() {
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
   const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
+  const [lastSaved, setLastSaved] = useState<Date | null>(null);
 
   useEffect(() => {
     fetchContent();
@@ -49,7 +50,8 @@ export default function FeaturesEditor() {
       });
 
       if (res.ok) {
-        setMessage({ type: "success", text: "Features section saved successfully!" });
+        setLastSaved(new Date());
+        setMessage({ type: "success", text: "Saved — your changes are now live on the website" });
       } else {
         throw new Error("Failed to save");
       }
@@ -124,19 +126,33 @@ export default function FeaturesEditor() {
             <p className="text-gray-500 text-sm">Edit feature cards and highlights</p>
           </div>
         </div>
-        <Button
-          onClick={handleSave}
-          disabled={isSaving}
-          className="bg-[#02B1C5] hover:bg-[#019AAD]"
-        >
-          {isSaving ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Save className="w-4 h-4 mr-2" />}
-          Save Changes
-        </Button>
+        <div className="flex items-center gap-3">
+          {lastSaved && (
+            <div className="flex items-center gap-1.5 text-sm text-green-600 bg-green-50 px-3 py-1.5 rounded-full border border-green-200">
+              <Circle className="w-2 h-2 fill-green-500 text-green-500" />
+              <span>Live</span>
+            </div>
+          )}
+          <Button
+            onClick={handleSave}
+            disabled={isSaving}
+            className="bg-[#02B1C5] hover:bg-[#019AAD]"
+          >
+            {isSaving ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Save className="w-4 h-4 mr-2" />}
+            Save Changes
+          </Button>
+        </div>
       </div>
 
       {message && (
-        <div className={`mb-6 p-4 rounded-lg ${message.type === "success" ? "bg-green-50 text-green-700 border border-green-200" : "bg-red-50 text-red-700 border border-red-200"}`}>
-          {message.text}
+        <div className={`mb-6 p-4 rounded-lg flex items-center gap-3 ${message.type === "success" ? "bg-green-50 text-green-700 border border-green-200" : "bg-red-50 text-red-700 border border-red-200"}`}>
+          {message.type === "success" && <CheckCircle2 className="w-5 h-5 flex-shrink-0" />}
+          <div>
+            <p className="font-medium">{message.text}</p>
+            {message.type === "success" && lastSaved && (
+              <p className="text-sm text-green-600 mt-0.5">Last saved at {lastSaved.toLocaleTimeString()}</p>
+            )}
+          </div>
         </div>
       )}
 
