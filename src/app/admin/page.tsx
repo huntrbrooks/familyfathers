@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import {
   Image,
@@ -68,12 +68,7 @@ const sections = [
 ];
 
 export default function AdminDashboard() {
-  const [lastUpdated, setLastUpdated] = useState<string | null>(null);
-
-  useEffect(() => {
-    // Set current time as last updated (this could be enhanced to fetch actual last update time)
-    setLastUpdated(new Date().toLocaleString());
-  }, []);
+  const [lastUpdated] = useState(() => new Date().toLocaleString());
 
   return (
     <div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import {
@@ -39,11 +39,7 @@ export default function AdminLayout({
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  useEffect(() => {
-    checkAuth();
-  }, []);
-
-  const checkAuth = async () => {
+  const checkAuth = useCallback(async () => {
     try {
       const res = await fetch("/api/admin/auth/session");
       const data = await res.json();
@@ -55,7 +51,12 @@ export default function AdminLayout({
       setIsAuthenticated(false);
       router.push("/admin/login");
     }
-  };
+  }, [pathname, router]);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    void checkAuth();
+  }, [checkAuth]);
 
   const handleLogout = async () => {
     try {

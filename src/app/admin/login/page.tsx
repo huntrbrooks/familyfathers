@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -85,9 +86,9 @@ export default function AdminLoginPage() {
         </div>
 
         <p className="text-center mt-4 text-sm text-gray-500">
-          <a href="/" className="hover:text-[#02B1C5]">
+          <Link href="/" className="hover:text-[#02B1C5]">
             Return to website
-          </a>
+          </Link>
         </p>
       </div>
     </div>
