@@ -1,7 +1,10 @@
 import { CheckCircle, MapPin } from "lucide-react";
 import Image from "next/image";
+import { getContent, HeroContent } from "@/lib/content";
 
-export function Hero() {
+export async function Hero() {
+  const content: HeroContent = await getContent("hero");
+  
   return (
     <section className="relative overflow-hidden bg-[#F9F9F9] py-12 sm:py-16 md:py-24">
       <div className="container mx-auto px-4 sm:px-6">
@@ -9,14 +12,11 @@ export function Hero() {
           {/* Text Content */}
           <div className="flex flex-col gap-4 sm:gap-6 text-center lg:text-left">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-              Specialists in child-centred supervision to support{" "}
-              <span className="text-[#02B1C5]">your family</span>
+              {content.heading}{" "}
+              <span className="text-[#02B1C5]">{content.headingHighlight}</span>
             </h1>
             <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
-              At Family Fathers, we provide innovative, specialised child
-              contact services for family law matters. Our professional and
-              caring supervisors facilitate court ordered time arrangements
-              between parents and children for your peace of mind.
+              {content.subheading}
             </p>
 
             {/* Badges */}
@@ -24,13 +24,13 @@ export function Hero() {
               <div className="inline-flex items-center justify-center gap-2 bg-[#FEF3EB] text-[#F5A66A] px-3 sm:px-4 py-2 sm:py-2.5 rounded-full border border-[#FAC39D] transition-all duration-300 hover:shadow-md sm:hover:scale-105 cursor-default">
                 <CheckCircle className="h-4 w-4 flex-shrink-0" />
                 <span className="text-xs sm:text-sm font-medium whitespace-nowrap">
-                  Weekday & Weekend Visits
+                  {content.badge1}
                 </span>
               </div>
               <div className="inline-flex items-center justify-center gap-2 bg-[#FEF3EB] text-[#F5A66A] px-3 sm:px-4 py-2 sm:py-2.5 rounded-full border border-[#FAC39D] transition-all duration-300 hover:shadow-md sm:hover:scale-105 cursor-default">
                 <MapPin className="h-4 w-4 flex-shrink-0" />
                 <span className="text-xs sm:text-sm font-medium whitespace-nowrap">
-                  Metropolitan Melbourne
+                  {content.badge2}
                 </span>
               </div>
             </div>
@@ -45,8 +45,8 @@ export function Hero() {
             <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-lg sm:shadow-xl transition-all duration-500 hover:shadow-2xl sm:hover:-translate-y-1">
               <div className="aspect-[4/3] relative">
                 <Image
-                  src="/hero-family.jpg"
-                  alt="Family playing together outdoors in the sunshine"
+                  src={content.imageUrl}
+                  alt={content.imageAlt}
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"

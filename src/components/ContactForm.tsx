@@ -11,16 +11,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { ContactContent } from "@/lib/content";
 
-const enquiryOptions = [
-  { value: "supervision", label: "I want to proceed with family law supervision" },
-  { value: "availability", label: "I want to learn about current availability" },
-  { value: "questions", label: "I have some questions about supervision" },
-  { value: "employment", label: "I am interested in employment" },
-  { value: "solicitor", label: "I am a family law solicitor" },
-];
+interface ContactFormProps {
+  content: ContactContent;
+}
 
-export function ContactForm() {
+export function ContactFormClient({ content }: ContactFormProps) {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     fullName: "",
@@ -96,13 +93,12 @@ export function ContactForm() {
               </svg>
             </div>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Thank you for your enquiry!
+              {content.successHeading}
             </h3>
             <p className="text-gray-600">
-              We will respond within 24 hours. If you have any urgent questions,
-              please call us at{" "}
-              <a href="tel:0493429730" className="text-[#02B1C5] font-medium transition-colors duration-300 hover:text-[#019AAD]">
-                0493 429 730
+              {content.successMessage}{" "}
+              <a href={`tel:${content.phoneNumber.replace(/\s/g, "")}`} className="text-[#02B1C5] font-medium transition-colors duration-300 hover:text-[#019AAD]">
+                {content.phoneNumber}
               </a>
             </p>
           </div>
@@ -117,10 +113,10 @@ export function ContactForm() {
         {/* Section Header */}
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
-            Contact Us
+            {content.sectionTitle}
           </h2>
           <p className="text-white/80 text-sm sm:text-base md:text-lg px-2">
-            Reach out today to register your interest and start the conversation.
+            {content.sectionSubtitle}
           </p>
         </div>
 
@@ -226,7 +222,7 @@ export function ContactForm() {
                       <SelectValue placeholder="Select an option" />
                     </SelectTrigger>
                     <SelectContent>
-                      {enquiryOptions.map((option) => (
+                      {content.enquiryOptions.map((option) => (
                         <SelectItem key={option.value} value={option.value}>
                           {option.label}
                         </SelectItem>
